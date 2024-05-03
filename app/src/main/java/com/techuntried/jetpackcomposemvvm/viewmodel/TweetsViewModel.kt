@@ -1,5 +1,6 @@
 package com.techuntried.jetpackcomposemvvm.viewmodel
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.techuntried.jetpackcomposemvvm.models.TweetItem
@@ -10,7 +11,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class TweetsViewModel @Inject constructor(private val repository: TweetsRepository) :
+class TweetsViewModel @Inject constructor(
+    private val repository: TweetsRepository,
+    private val savedStateHandle: SavedStateHandle
+) :
     ViewModel() {
 
 
@@ -18,10 +22,11 @@ class TweetsViewModel @Inject constructor(private val repository: TweetsReposito
         get() = repository.tweets
 
     init {
-        getTweets("Motivation")
+        val category = savedStateHandle.get<String>("category")?:"Motivation"
+        getTweets(category)
     }
 
-    fun getTweets(category: String) {
+    private fun getTweets(category: String) {
         viewModelScope.launch {
             repository.getTweets(category)
         }
