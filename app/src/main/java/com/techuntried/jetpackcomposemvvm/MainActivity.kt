@@ -2,6 +2,7 @@ package com.techuntried.jetpackcomposemvvm
 
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -29,6 +30,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.techuntried.jetpackcomposemvvm.navigation.Screens
 import com.techuntried.jetpackcomposemvvm.screens.CategoryScreen
+import com.techuntried.jetpackcomposemvvm.screens.SettingScreen
 import com.techuntried.jetpackcomposemvvm.screens.TweetsScreen
 import com.techuntried.jetpackcomposemvvm.ui.theme.JetpackComposeMvvmTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -48,18 +50,25 @@ class MainActivity : ComponentActivity() {
                         TopAppBar(
                             title = { Text(text = "Tweets") },
                             actions = {
-                               IconButton(onClick = {
-                                   Toast.makeText(
-                                       this@MainActivity,
-                                       "hi",
-                                       Toast.LENGTH_SHORT
-                                   ).show()}) {
-                                   Icon(Icons.Default.Face,"fa")
-                               }
+                                IconButton(onClick = {
+                                    Toast.makeText(
+                                        this@MainActivity,
+                                        "hi",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }) {
+                                    Icon(Icons.Default.Face, "")
+                                }
 
-                                IconButton(onClick = {}) {
-                                   Icon(Icons.Default.MoreVert,"fa")
-                               }
+                                IconButton(onClick = {
+                                    Toast.makeText(
+                                        this@MainActivity,
+                                        "more",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }) {
+                                    Icon(Icons.Default.MoreVert, "")
+                                }
                             }
                         )
                     }
@@ -78,9 +87,7 @@ fun App() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screens.CategoryScreen.route) {
         composable(Screens.CategoryScreen.route) {
-            CategoryScreen {
-                navController.navigate("tweets/$it")
-            }
+            CategoryScreen(navController)
         }
         composable(Screens.TweetsScreen.route, arguments = listOf(
             navArgument("category") {
@@ -88,6 +95,16 @@ fun App() {
             }
         )) {
             TweetsScreen()
+        }
+
+        composable(Screens.SettingsScreen.route, arguments = listOf(
+            navArgument("name"){
+                type = NavType.StringType
+                nullable=true
+            }
+        )) {
+            Log.d("MYDEBUG", "${it.arguments?.getString("name")}")
+            SettingScreen()
         }
     }
 }
