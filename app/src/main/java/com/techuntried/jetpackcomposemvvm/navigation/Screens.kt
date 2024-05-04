@@ -8,9 +8,11 @@ sealed class Screens(val route: String) {
             return "tweets/$category"
         }
     }
-    object SettingsScreen : Screens("settings?name={name}"){
+    object ComposeUiScreen : Screens("compose?name={name}"){
         fun passName(name:String="achint"):String{
-            return "settings?name=$name"
+            return "compose?name=$name"
         }
     }
+
+    object CanvasScreen:Screens("canvas")
 }

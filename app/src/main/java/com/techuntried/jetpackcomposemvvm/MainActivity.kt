@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Face
@@ -15,22 +14,20 @@ import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.techuntried.jetpackcomposemvvm.navigation.Screens
+import com.techuntried.jetpackcomposemvvm.screens.CanvasScreen
 import com.techuntried.jetpackcomposemvvm.screens.CategoryScreen
-import com.techuntried.jetpackcomposemvvm.screens.SettingScreen
+import com.techuntried.jetpackcomposemvvm.screens.ComposeUiScreen
 import com.techuntried.jetpackcomposemvvm.screens.TweetsScreen
 import com.techuntried.jetpackcomposemvvm.ui.theme.JetpackComposeMvvmTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -97,14 +94,17 @@ fun App() {
             TweetsScreen()
         }
 
-        composable(Screens.SettingsScreen.route, arguments = listOf(
-            navArgument("name"){
+        composable(Screens.ComposeUiScreen.route, arguments = listOf(
+            navArgument("name") {
                 type = NavType.StringType
-                nullable=true
+                nullable = true
             }
         )) {
             Log.d("MYDEBUG", "${it.arguments?.getString("name")}")
-            SettingScreen()
+            ComposeUiScreen(navController)
+        }
+        composable(Screens.CanvasScreen.route) {
+            CanvasScreen()
         }
     }
 }
