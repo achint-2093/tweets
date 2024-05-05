@@ -27,7 +27,9 @@ import androidx.navigation.navArgument
 import com.techuntried.jetpackcomposemvvm.navigation.Screens
 import com.techuntried.jetpackcomposemvvm.screens.CanvasScreen
 import com.techuntried.jetpackcomposemvvm.screens.CategoryScreen
+import com.techuntried.jetpackcomposemvvm.screens.CoilScreen
 import com.techuntried.jetpackcomposemvvm.screens.ComposeUiScreen
+import com.techuntried.jetpackcomposemvvm.screens.ImagePickerScreen
 import com.techuntried.jetpackcomposemvvm.screens.TweetsScreen
 import com.techuntried.jetpackcomposemvvm.ui.theme.JetpackComposeMvvmTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -105,6 +107,12 @@ fun App() {
         }
         composable(Screens.CanvasScreen.route) {
             CanvasScreen()
+        }
+        composable(Screens.CoilScreen.route) {
+            CoilScreen()
+        }
+        composable(Screens.ImagePickerScreen.route) {
+            ImagePickerScreen()
         }
     }
 }

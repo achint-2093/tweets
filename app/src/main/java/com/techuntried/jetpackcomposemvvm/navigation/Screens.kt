@@ -15,4 +15,7 @@ sealed class Screens(val route: String) {
     }
 
     object CanvasScreen:Screens("canvas")
+
+    object CoilScreen:Screens("coil")
+    object ImagePickerScreen:Screens("image_picker")
 }

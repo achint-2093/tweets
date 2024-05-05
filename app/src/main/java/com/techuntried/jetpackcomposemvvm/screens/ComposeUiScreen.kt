@@ -1,5 +1,6 @@
 package com.techuntried.jetpackcomposemvvm.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,9 +16,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.paint
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.techuntried.jetpackcomposemvvm.R
 import com.techuntried.jetpackcomposemvvm.navigation.Screens
@@ -25,43 +29,66 @@ import com.techuntried.jetpackcomposemvvm.navigation.Screens
 @Composable
 fun ComposeUiScreen(navController: NavController) {
     val components = getComponents()
+    val colors = listOf(Color.White, Color.Black, Color.Black, Color.White)
+
     LazyVerticalGrid(columns = GridCells.Fixed(2)) {
-        items(components) {
-            ComponentItem(name = it, navController = navController)
+        items(components.size) { index ->
+            val component = components[index]
+            val color = colors[index % colors.size]
+            ComponentItem(name = component, color = color, navController = navController)
         }
     }
 }
 
 @Composable
-fun ComponentItem(name: String, navController: NavController) {
+fun ComponentItem(name: Components, color: Color, navController: NavController) {
     Box(
         modifier = Modifier
             .size(140.dp)
             .padding(8.dp)
             .clickable {
-                if (name == "Custom ui component") {
-                    navController.navigate(Screens.CanvasScreen.route)
+                when (name) {
+                    Components.CustomUiComponent -> {
+                        navController.navigate(Screens.CanvasScreen.route)
+                    }
+
+                    Components.Coil -> {
+                        navController.navigate(Screens.CoilScreen.route)
+                    }
+
+                    Components.ImagePicker -> {
+                        navController.navigate(Screens.ImagePickerScreen.route)
+                    }
+
+                    Components.BottomSheet -> TODO()
+                    Components.AlertDialogs -> TODO()
+                    Components.FloatingButton -> TODO()
+                    Components.BottomNavbar -> TODO()
+                    Components.Drawer -> TODO()
                 }
             }
             .clip(RoundedCornerShape(12.dp))
-            .paint(
-                painter = painterResource(id = R.drawable.ic_launcher_background),
-                contentScale = ContentScale.Crop
-            ),
+            .background(color = color),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = name)
+        val clr = if (color == Color.White)
+            Color.Black
+        else
+            Color.White
+        Text(
+            text = name.toString(),
+            color = clr,
+            fontWeight = FontWeight.Bold,
+            fontSize = 18.sp
+        )
     }
 }
 
-fun getComponents(): List<String> {
-    val components = mutableListOf<String>()
-    components.add("Custom ui component")
-    components.add("Text")
-    components.add("Text")
-    components.add("Text")
-    components.add("Text")
-    components.add("Text")
-    components.add("Text")
-    return components
+fun getComponents(): List<Components> {
+    return enumValues<Components>().toMutableList()
 }
+
+enum class Components {
+    CustomUiComponent, Coil, ImagePicker, BottomSheet, AlertDialogs, FloatingButton, BottomNavbar, Drawer
+}
+
