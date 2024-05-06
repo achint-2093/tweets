@@ -70,7 +70,7 @@ fun Toolbar(navController: NavHostController) {
         ComposeUiScreens.ComposeUiScreen.route -> "Compose Components"
 
         else -> {
-            "hello"
+            "Title"
         }
     }
     val context = LocalContext.current
