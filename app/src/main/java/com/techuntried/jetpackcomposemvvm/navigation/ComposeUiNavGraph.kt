@@ -15,23 +15,23 @@ import com.techuntried.jetpackcomposemvvm.screens.ImagePickerScreen
 
 
 fun NavGraphBuilder.composeUiNavGraph(navController: NavController) {
-    navigation(route = Graphs.ComposeGraph, startDestination = Screens.ComposeUiScreen.route) {
-        composable(Screens.ComposeUiScreen.route) {
+    navigation(route = Graphs.ComposeGraph, startDestination = ComposeUiScreens.ComposeUiScreen.route) {
+        composable(ComposeUiScreens.ComposeUiScreen.route) {
             ComposeUiScreen(navController)
         }
-        composable(Screens.CanvasScreen.route) {
+        composable(ComposeUiScreens.CanvasScreen.route) {
             CanvasScreen()
         }
-        composable(Screens.CoilScreen.route) {
+        composable(ComposeUiScreens.CoilScreen.route) {
             CoilScreen()
         }
-        composable(Screens.ImagePickerScreen.route) {
+        composable(ComposeUiScreens.ImagePickerScreen.route) {
             ImagePickerScreen()
         }
-        composable(Screens.AlertDialogScreen.route) {
+        composable(ComposeUiScreens.AlertDialogScreen.route) {
             AlertDialogScreen()
         }
-        composable(Screens.FloatingScreen.route) {
+        composable(ComposeUiScreens.FloatingScreen.route) {
             FloatingScreen()
         }
         composable(Graphs.BottomBarGraph) {

@@ -1,5 +1,11 @@
 package com.techuntried.jetpackcomposemvvm.navigation
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.ui.graphics.vector.ImageVector
+
 sealed class Screens(val route: String) {
     object CategoryScreen : Screens("category")
 
@@ -8,17 +14,25 @@ sealed class Screens(val route: String) {
             return "tweets/$category"
         }
     }
-    object ComposeUiScreen : Screens("compose?name={name}"){
+}
+
+sealed class ComposeUiScreens(val route: String){
+
+    object ComposeUiScreen : ComposeUiScreens("compose?name={name}"){
         fun passName(name:String="achint"):String{
             return "compose?name=$name"
         }
     }
+    object CanvasScreen:ComposeUiScreens("canvas")
 
-    object CanvasScreen:Screens("canvas")
+    object CoilScreen:ComposeUiScreens("coil")
+    object ImagePickerScreen:ComposeUiScreens("image_picker")
+    object AlertDialogScreen:ComposeUiScreens("alert")
+    object FloatingScreen:ComposeUiScreens("floating")
+}
 
-    object CoilScreen:Screens("coil")
-    object ImagePickerScreen:Screens("image_picker")
-    object AlertDialogScreen:Screens("alert")
-    object FloatingScreen:Screens("floating")
-    object BottomNavScreen:Screens("bottomNav")
+sealed class BottomBarScreens(val route: String, val title: String, val icon: ImageVector) {
+    object HomeScreen : BottomBarScreens("home","Home", Icons.Filled.Home)
+    object ProfileScreen : BottomBarScreens("profile","Profile", Icons.Filled.Person)
+    object SearchScreen : BottomBarScreens("search","Search", Icons.Filled.Search)
 }

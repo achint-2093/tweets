@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.techuntried.jetpackcomposemvvm.R
 import com.techuntried.jetpackcomposemvvm.navigation.Graphs
+import com.techuntried.jetpackcomposemvvm.navigation.ComposeUiScreens
 import com.techuntried.jetpackcomposemvvm.navigation.Screens
 
 @Composable
@@ -50,20 +51,20 @@ fun ComponentItem(name: Components, color: Color, navController: NavController) 
             .clickable {
                 when (name) {
                     Components.CustomUiComponent -> {
-                        navController.navigate(Screens.CanvasScreen.route)
+                        navController.navigate(ComposeUiScreens.CanvasScreen.route)
                     }
 
                     Components.Coil -> {
-                        navController.navigate(Screens.CoilScreen.route)
+                        navController.navigate(ComposeUiScreens.CoilScreen.route)
                     }
 
                     Components.ImagePicker -> {
-                        navController.navigate(Screens.ImagePickerScreen.route)
+                        navController.navigate(ComposeUiScreens.ImagePickerScreen.route)
                     }
 
                     Components.BottomSheet -> TODO()
-                    Components.AlertDialogs -> navController.navigate(Screens.AlertDialogScreen.route)
-                    Components.FloatingButton -> navController.navigate(Screens.FloatingScreen.route)
+                    Components.AlertDialogs -> navController.navigate(ComposeUiScreens.AlertDialogScreen.route)
+                    Components.FloatingButton -> navController.navigate(ComposeUiScreens.FloatingScreen.route)
                     Components.BottomNavbar -> navController.navigate(Graphs.BottomBarGraph)
                     Components.Drawer -> TODO()
                 }
