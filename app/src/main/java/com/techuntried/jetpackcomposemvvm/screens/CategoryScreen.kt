@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.techuntried.jetpackcomposemvvm.R
+import com.techuntried.jetpackcomposemvvm.navigation.Graphs
 import com.techuntried.jetpackcomposemvvm.navigation.Screens
 import com.techuntried.jetpackcomposemvvm.viewmodel.CategoryViewModel
 
@@ -50,7 +51,7 @@ fun CategoryScreen(navController: NavController) {
             Button(
                 onClick = {
                     navController.navigate(
-                        Screens.ComposeUiScreen.route
+                        Graphs.ComposeGraph
                     )
                 },
                 modifier = Modifier

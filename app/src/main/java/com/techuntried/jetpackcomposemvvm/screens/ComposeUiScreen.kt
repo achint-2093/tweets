@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.techuntried.jetpackcomposemvvm.R
+import com.techuntried.jetpackcomposemvvm.navigation.Graphs
 import com.techuntried.jetpackcomposemvvm.navigation.Screens
 
 @Composable
@@ -63,7 +64,7 @@ fun ComponentItem(name: Components, color: Color, navController: NavController) 
                     Components.BottomSheet -> TODO()
                     Components.AlertDialogs -> navController.navigate(Screens.AlertDialogScreen.route)
                     Components.FloatingButton -> navController.navigate(Screens.FloatingScreen.route)
-                    Components.BottomNavbar -> TODO()
+                    Components.BottomNavbar -> navController.navigate(Graphs.BottomBarGraph)
                     Components.Drawer -> TODO()
                 }
             }

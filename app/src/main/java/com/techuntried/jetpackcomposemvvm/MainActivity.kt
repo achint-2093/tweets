@@ -24,8 +24,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+
 import com.techuntried.jetpackcomposemvvm.navigation.Screens
+import com.techuntried.jetpackcomposemvvm.navigation.composeUiNavGraph
 import com.techuntried.jetpackcomposemvvm.screens.AlertDialogScreen
+import com.techuntried.jetpackcomposemvvm.screens.BottomNavScreen
 import com.techuntried.jetpackcomposemvvm.screens.CanvasScreen
 import com.techuntried.jetpackcomposemvvm.screens.CategoryScreen
 import com.techuntried.jetpackcomposemvvm.screens.CoilScreen
@@ -97,31 +100,7 @@ fun App() {
         )) {
             TweetsScreen()
         }
-
-        composable(Screens.ComposeUiScreen.route, arguments = listOf(
-            navArgument("name") {
-                type = NavType.StringType
-                nullable = true
-            }
-        )) {
-            Log.d("MYDEBUG", "${it.arguments?.getString("name")}")
-            ComposeUiScreen(navController)
-        }
-        composable(Screens.CanvasScreen.route) {
-            CanvasScreen()
-        }
-        composable(Screens.CoilScreen.route) {
-            CoilScreen()
-        }
-        composable(Screens.ImagePickerScreen.route) {
-            ImagePickerScreen()
-        }
-        composable(Screens.AlertDialogScreen.route) {
-            AlertDialogScreen()
-        }
-        composable(Screens.FloatingScreen.route) {
-            FloatingScreen()
-        }
+        composeUiNavGraph(navController = navController)
     }
 }
 

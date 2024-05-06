@@ -92,6 +92,9 @@ dependencies {
 
     //coil
     implementation("io.coil-kt:coil-compose:1.3.0")
+
+    //compose material
+    implementation("androidx.compose.material:material:1.6.7")
 }
 kapt {
     correctErrorTypes = true

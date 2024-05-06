@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -15,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun FloatingScreen() {
@@ -31,10 +33,13 @@ fun FloatingScreen() {
                     "Amidst this grandeur and unpredictability, there is a sense of peace and balance that pervades everything. It is a reminder of our place in the universe and the importance of cherishing and preserving the precious gift of nature for generations to come."
 
         )
-        Column(modifier = Modifier.fillMaxSize(),horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.Bottom) {
-            FloatingActionButton(onClick = {}) {
-                Icon(imageVector = Icons.Filled.Add, contentDescription = "")
-            }
+        FloatingActionButton(
+            onClick = {},
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(16.dp)
+        ) {
+            Icon(imageVector = Icons.Filled.Add, contentDescription = "")
         }
 
     }
