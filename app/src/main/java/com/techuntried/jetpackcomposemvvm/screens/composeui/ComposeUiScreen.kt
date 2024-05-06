@@ -1,32 +1,25 @@
-package com.techuntried.jetpackcomposemvvm.screens
+package com.techuntried.jetpackcomposemvvm.screens.composeui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.techuntried.jetpackcomposemvvm.R
 import com.techuntried.jetpackcomposemvvm.navigation.Graphs
 import com.techuntried.jetpackcomposemvvm.navigation.ComposeUiScreens
-import com.techuntried.jetpackcomposemvvm.navigation.Screens
 
 @Composable
 fun ComposeUiScreen(navController: NavController) {
@@ -62,7 +55,7 @@ fun ComponentItem(name: Components, color: Color, navController: NavController) 
                         navController.navigate(ComposeUiScreens.ImagePickerScreen.route)
                     }
 
-                    Components.BottomSheet -> TODO()
+                    Components.BottomSheet -> navController.navigate(ComposeUiScreens.BottomSheetScreen.route)
                     Components.AlertDialogs -> navController.navigate(ComposeUiScreens.AlertDialogScreen.route)
                     Components.FloatingButton -> navController.navigate(ComposeUiScreens.FloatingScreen.route)
                     Components.BottomNavbar -> navController.navigate(Graphs.BottomBarGraph)

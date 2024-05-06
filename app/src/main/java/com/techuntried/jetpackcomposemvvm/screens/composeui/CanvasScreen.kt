@@ -1,4 +1,4 @@
-package com.techuntried.jetpackcomposemvvm.screens
+package com.techuntried.jetpackcomposemvvm.screens.composeui
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.layout.Column

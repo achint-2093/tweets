@@ -29,6 +29,7 @@ sealed class ComposeUiScreens(val route: String){
     object ImagePickerScreen:ComposeUiScreens("image_picker")
     object AlertDialogScreen:ComposeUiScreens("alert")
     object FloatingScreen:ComposeUiScreens("floating")
+    object BottomSheetScreen:ComposeUiScreens("bottomSheet")
 }
 
 sealed class BottomBarScreens(val route: String, val title: String, val icon: ImageVector) {

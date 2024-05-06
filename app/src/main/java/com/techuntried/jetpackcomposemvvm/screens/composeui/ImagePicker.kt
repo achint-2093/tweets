@@ -1,4 +1,4 @@
-package com.techuntried.jetpackcomposemvvm.screens
+package com.techuntried.jetpackcomposemvvm.screens.composeui
 
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
