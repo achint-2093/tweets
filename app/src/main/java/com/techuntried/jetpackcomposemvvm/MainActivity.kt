@@ -30,6 +30,7 @@ import com.techuntried.jetpackcomposemvvm.screens.CanvasScreen
 import com.techuntried.jetpackcomposemvvm.screens.CategoryScreen
 import com.techuntried.jetpackcomposemvvm.screens.CoilScreen
 import com.techuntried.jetpackcomposemvvm.screens.ComposeUiScreen
+import com.techuntried.jetpackcomposemvvm.screens.FloatingScreen
 import com.techuntried.jetpackcomposemvvm.screens.ImagePickerScreen
 import com.techuntried.jetpackcomposemvvm.screens.TweetsScreen
 import com.techuntried.jetpackcomposemvvm.ui.theme.JetpackComposeMvvmTheme
@@ -117,6 +118,9 @@ fun App() {
         }
         composable(Screens.AlertDialogScreen.route) {
             AlertDialogScreen()
+        }
+        composable(Screens.FloatingScreen.route) {
+            FloatingScreen()
         }
     }
 }

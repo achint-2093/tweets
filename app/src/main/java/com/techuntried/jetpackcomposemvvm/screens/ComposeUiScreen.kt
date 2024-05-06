@@ -62,7 +62,7 @@ fun ComponentItem(name: Components, color: Color, navController: NavController) 
 
                     Components.BottomSheet -> TODO()
                     Components.AlertDialogs -> navController.navigate(Screens.AlertDialogScreen.route)
-                    Components.FloatingButton -> TODO()
+                    Components.FloatingButton -> navController.navigate(Screens.FloatingScreen.route)
                     Components.BottomNavbar -> TODO()
                     Components.Drawer -> TODO()
                 }
