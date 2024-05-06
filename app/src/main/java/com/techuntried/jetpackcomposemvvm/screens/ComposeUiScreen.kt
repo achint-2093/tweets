@@ -61,7 +61,7 @@ fun ComponentItem(name: Components, color: Color, navController: NavController) 
                     }
 
                     Components.BottomSheet -> TODO()
-                    Components.AlertDialogs -> TODO()
+                    Components.AlertDialogs -> navController.navigate(Screens.AlertDialogScreen.route)
                     Components.FloatingButton -> TODO()
                     Components.BottomNavbar -> TODO()
                     Components.Drawer -> TODO()
@@ -89,6 +89,13 @@ fun getComponents(): List<Components> {
 }
 
 enum class Components {
-    CustomUiComponent, Coil, ImagePicker, BottomSheet, AlertDialogs, FloatingButton, BottomNavbar, Drawer
+    CustomUiComponent,
+    Coil,
+    ImagePicker,
+    BottomSheet,
+    AlertDialogs,
+    FloatingButton,
+    BottomNavbar,
+    Drawer
 }
 

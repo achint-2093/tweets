@@ -25,6 +25,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.techuntried.jetpackcomposemvvm.navigation.Screens
+import com.techuntried.jetpackcomposemvvm.screens.AlertDialogScreen
 import com.techuntried.jetpackcomposemvvm.screens.CanvasScreen
 import com.techuntried.jetpackcomposemvvm.screens.CategoryScreen
 import com.techuntried.jetpackcomposemvvm.screens.CoilScreen
@@ -113,6 +114,9 @@ fun App() {
         }
         composable(Screens.ImagePickerScreen.route) {
             ImagePickerScreen()
+        }
+        composable(Screens.AlertDialogScreen.route) {
+            AlertDialogScreen()
         }
     }
 }
