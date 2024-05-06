@@ -1,6 +1,6 @@
-# Jetpack Compose MVVM Playground
+# Jetpack Compose MVVM
 
-Welcome to my Jetpack Compose MVVM Playground! 🚀
+Welcome to my Jetpack Compose MVVM 🚀
 
 ## About
 This app is built entirely in Kotlin, with the user interface crafted using Jetpack Compose. It's my personal project aimed at mastering the basics and fundamentals of Jetpack Compose. Throughout its development, I've focused on creating practical components that you can use in your everyday app development tasks. Feel free to explore the codebase and learn alongside me!
